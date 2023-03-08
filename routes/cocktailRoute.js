@@ -26,7 +26,7 @@ router.get('/all', async(req, res) => {
 // acceder à un cocktail grace à son id (get by id)
 router.get('/id', async(req,res) => {
     try {
-        const cocktail = await Cocktail.findById('64079cb0a3bee7464f34ba51')
+        const cocktail = await Cocktail.findById('id')
         res.send(cocktail)
     } catch (error) {
         console.error(error)
@@ -36,10 +36,10 @@ router.get('/id', async(req,res) => {
 // modifier un cocktail grace à son id (put by id)
 router.put('/id', async(req,res) => {
     try {
-        const cocktail = await Cocktail.findById('64079cb0a3bee7464f34ba51')
-        cocktail.isPrepared = true
+        const cocktail = await Cocktail.findById('64085fa77b5f3740ac9094ea')
+        cocktail.price = 14
         await cocktail.save()
-        res.send(cocktail)
+        res.send({message: 'Cocktail successfully updated'})
     } catch (error) {
         console.error(error)
     }
@@ -48,8 +48,8 @@ router.put('/id', async(req,res) => {
 // supprimer un cocktail grace à son id (delete by id)
 router.delete('/id', async(req,res) => {
     try {
-        const cocktail = await Cocktail.findByIdAndDelete('64079cb0a3bee7464f34ba51')
-       res.send('Cocktail successfully deleted')
+        const cocktail = await Cocktail.findByIdAndDelete('id')
+       res.send({message: 'Cocktail successfully removed'})
     } catch (error) {
         console.error(error)
     }

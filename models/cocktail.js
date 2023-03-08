@@ -9,11 +9,8 @@ const cocktailSchema = new Schema({
         default: true
     },
     alcoholType: String,
+    origin: String,
     price: Number,
-    isPrepared: {
-        type: Boolean,
-        default: false
-    }
 })
 
 const Cocktail = mongoose.model('Cocktail', cocktailSchema)
